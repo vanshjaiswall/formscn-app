@@ -31,7 +31,11 @@ function getSheetsClient() {
     );
   }
 
-  const auth = new google.auth.JWT(clientEmail, undefined, privateKey, SCOPES);
+  const auth = new google.auth.JWT({
+    email: clientEmail,
+    key: privateKey,
+    scopes: SCOPES,
+  });
   const sheets = google.sheets({ version: "v4", auth });
 
   return { sheets, spreadsheetId };
