@@ -43,15 +43,8 @@ export function FileUpload({
   // description?: string;
   required?: boolean;
   disabled?: boolean;
-  setValue: (
-    name: string,
-    value: string[],
-    options?: {
-      shouldValidate?: boolean;
-      shouldDirty?: boolean;
-      shouldTouch?: boolean;
-    }
-  ) => void;
+  // Loosely typed to accept react-hook-form's UseFormSetValue from the parent.
+  setValue: (...args: any[]) => void;
   accept?: string;
   name: string;
 }) {
