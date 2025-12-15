@@ -269,7 +269,6 @@ return (
                 {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
               </FieldContent>
               <Switch
-                {...field}
                 aria-invalid={fieldState.invalid}
                 id="compliance_declaration"
                 checked={field.value}
@@ -291,7 +290,6 @@ return (
                 {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
               </FieldContent>
               <Switch
-                {...field}
                 aria-invalid={fieldState.invalid}
                 id="merchant_agreement_policy"
                 checked={field.value}
@@ -310,7 +308,6 @@ return (
             <Field data-invalid={fieldState.invalid} className="gap-1 col-span-full">
             <FieldLabel htmlFor="social_media_links">Social Media Links </FieldLabel>
               <Input
-                {...field}
                 id="social_media_links"
                 type="text"
                 onChange={(e) => {
