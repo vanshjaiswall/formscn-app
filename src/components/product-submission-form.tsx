@@ -72,7 +72,10 @@ const { isExecuting, hasSucceeded } = formAction;
       </div>)
   }
 return (
-     <form onSubmit={handleSubmit} className="p-6 sm:p-8 w-full max-w-3xl mx-auto rounded-xl border border-s
+  <form
+    onSubmit={handleSubmit}
+    className="p-6 sm:p-8 w-full max-w-3xl mx-auto rounded-xl border border-slate-700 bg-slate-900 text-slate-50"
+  >
         <FieldGroup className="grid md:grid-cols-6 gap-4 mb-6">
           <h2 className="mt-4 mb-1 font-bold text-2xl tracking-tight col-span-full">Intro</h2>
 
