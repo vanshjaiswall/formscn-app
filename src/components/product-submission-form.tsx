@@ -18,7 +18,9 @@ import Image from "next/image"
 
 const socialMediaButtons = [{"src":"https://cdn.brandfetch.io/id6O2oGzv-/theme/dark/symbol.svg?c=1bxid64Mup7aczewSAYMX&t=1755835725776","label":"Continue with Google"},{"src":"https://cdn.brandfetch.io/idZAyF9rlg/theme/dark/symbol.svg?c=1bxid64Mup7aczewSAYMX&t=1719469980739","label":"Continue with GitHub"}]
 
-type Schema = z.infer<typeof formSchema>;
+// Use the input type of the schema so optional fields (with defaults) align
+// with what react-hook-form expects from the resolver.
+type Schema = z.input<typeof formSchema>;
 
 export function DraftForm() {
 
