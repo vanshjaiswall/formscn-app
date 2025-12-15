@@ -80,15 +80,15 @@ export function FileUpload({
     <div className="flex flex-col gap-2 pb-2">
       {/* Drop area */}
       <div
-        role="button"
-        onClick={openFileDialog}
-        onDragEnter={handleDragEnter}
-        onDragLeave={handleDragLeave}
-        onDragOver={handleDragOver}
-        onDrop={handleDrop}
-        data-dragging={isDragging || undefined}
-        className="border-input hover:bg-accent/50 data-[dragging=true]:bg-accent/50 has-[input:focus]:border-ring has-[input:focus]:ring-ring/50 flex min-h-32 flex-col items-center justify-center rounded-md border border-dashed p-4 transition-colors has-disabled:pointer-events-none has-disabled:opacity-50 has-[input:focus]:ring-[3px] hover:cursor-pointer"
-      >
+  role="button"
+  onClick={openFileDialog}
+  onDragEnter={handleDragEnter}
+  onDragLeave={handleDragLeave}
+  onDragOver={handleDragOver}
+  onDrop={handleDrop}
+  data-dragging={isDragging || undefined}
+  className="flex min-h-40 flex-col items-center justify-center rounded-xl border border-dashed border-slate-600 bg-slate-900/70 p-6 transition-colors hover:cursor-pointer hover:bg-slate-800 data-[dragging=true]:bg-slate-800 has-[input:focus]:border-slate-300 has-[input:focus]:ring-[3px] has-[input:focus]:ring-slate-500/60 has-disabled:pointer-events-none has-disabled:opacity-50"
+>
         <input
           {...getInputProps()}
           className="sr-only"
