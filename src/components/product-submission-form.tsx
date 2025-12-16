@@ -77,6 +77,9 @@ return (
         className="p-6 sm:p-8 w-full max-w-3xl mx-auto rounded-xl border border-slate-200 bg-white text-slate-900 shadow-xl"
       >
         <FieldGroup className="grid md:grid-cols-6 gap-4 mb-6">
+        <h2 className="mt-4 mb-1 font-bold text-2xl tracking-tight col-span-full text-black">
+          Intro
+        </h2>
         <Controller
           name="product_name"
           control={form.control}
@@ -93,7 +96,7 @@ return (
                 field.onChange(e.target.value)
                 }}
                 aria-invalid={fieldState.invalid}
-                placeholder="Working name of your product."
+                placeholder="Tell us about your product name"
                 className="bg-white text-black placeholder:text-black border-slate-200"
               />
               
@@ -118,7 +121,7 @@ return (
                 field.onChange(e.target.value)
                 }}
                 aria-invalid={fieldState.invalid}
-                placeholder="Provide a working website (e.g. .vercel.app, .netlify.app)."
+                placeholder="If you don't have a website, submit vercel or netlify"
                 className="bg-white text-black placeholder:text-black border-slate-200"
               />
               
@@ -127,24 +130,23 @@ return (
           )}
         />
 
+        <h2 className="mt-4 mb-1 font-bold text-2xl tracking-tight col-span-full text-black">
+          Product Details
+        </h2>
         <Controller
-          name="description"
+          name="what_are_you_selling"
           control={form.control}
           render={({ field, fieldState }) => (
             <Field data-invalid={fieldState.invalid} className="gap-1 col-span-full">
-            <FieldLabel htmlFor="description">
-              Description <span className="text-red-500">*</span>
+            <FieldLabel htmlFor="what_are_you_selling">
+              What are you selling? <span className="text-red-500">*</span>
             </FieldLabel>
-              <Input
+              <Textarea
                 {...(field as any)}
-                id="description"
-                type="text"
-                onChange={(e) => {
-                field.onChange(e.target.value)
-                }}
                 aria-invalid={fieldState.invalid}
-                placeholder="A SaaS tool that helps businesses manage subscriptions and accept global payments."
-                className="bg-white text-black placeholder:text-black border-slate-200"
+                id="what_are_you_selling"
+                placeholder="We are building a SaaS platform that allows founders to create subscriptions, accept global payments, manage customers, and automate billing. The product helps teams launch faster by handling compliance, payments, and payouts."
+                className="bg-white text-black placeholder:text-black border-slate-200 min-h-[120px]"
               />
               
               {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
@@ -156,10 +158,19 @@ return (
           name="product_type"
           control={form.control}
           render={({ field, fieldState }) => {
-          const options = [{"label":"SaaS","value":"saas"},{"label":"e-Books","value":"ebooks"},{"label":"AI Tools","value":"ai_tools"},{"label":"Productized Service","value":"productized_service"},{"label":"Course","value":"course"},{"label":"3rd Party Extensions / Apps","value":"third_party"},{"label":"Templates","value":"templates"},{"label":"Others","value":"others"}];
+          const options = [
+            {"label":"SaaS","value":"saas"},
+            {"label":"AI Tools","value":"ai_tools"},
+            {"label":"Productized Service","value":"productized_service"},
+            {"label":"Course","value":"course"},
+            {"label":"Templates/e-Books/3rd Party Extensions/Apps","value":"templates_ebooks_extensions"},
+            {"label":"Others","value":"others"}
+          ];
           return (
             <Field data-invalid={fieldState.invalid} className="gap-1 col-span-full">
-            <FieldLabel htmlFor="product_type">Product Type</FieldLabel>
+            <FieldLabel htmlFor="product_type">
+              Product Type <span className="text-red-500">*</span>
+            </FieldLabel>
               
               <Select
                 value={field.value as string}
@@ -184,27 +195,6 @@ return (
           )}}
         />
 
-          <Controller
-              name="what_are_you_selling"
-              control={form.control}
-              render={({ field, fieldState }) => (
-                <Field data-invalid={fieldState.invalid} className="gap-1 col-span-full">
-                <FieldLabel htmlFor="what_are_you_selling">
-                  What are you selling? <span className="text-red-500">*</span>
-                </FieldLabel>
-                  <Textarea
-                    {...(field as any)}
-                    aria-invalid={fieldState.invalid}
-                    id="what_are_you_selling"
-                    placeholder="We are building a SaaS platform that allows founders to create subscriptions, accept global payments, manage customers, and automate billing. The product helps teams launch faster by handling compliance, payments, and payouts."
-                    className="bg-white text-black placeholder:text-black border-slate-200 min-h-[120px]"
-                  />
-                  
-                  {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
-                </Field>
-              )}
-            />
-
         <Controller
           name="product_demo"
           control={form.control}
@@ -212,9 +202,11 @@ return (
             <div>
               <Field data-invalid={fieldState.invalid} className="gap-1 col-span-full">
                 <FieldLabel htmlFor="product_demo">
-                  Prototype / Product Demo
+                  Product Demo
                 </FieldLabel>
-                
+                <p className="text-sm text-black mb-2">
+                  Upload anything that helps us understand the product better
+                </p>
                 <FileUpload
                   {...field}
                   setValue={form.setValue}

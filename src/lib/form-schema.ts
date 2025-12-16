@@ -11,7 +11,6 @@ export interface ActionResponse<T = unknown> {
 export const formSchema = z.object({
   product_name: z.string().min(1, "Product name is required."),
   website: z.string().min(1, "Website is required."),
-  description: z.string().min(1, "Description is required."),
   product_type: z.string().min(1, "Please select a product type."),
   what_are_you_selling: z
     .string()
