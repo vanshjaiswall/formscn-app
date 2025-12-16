@@ -121,7 +121,7 @@ return (
                 field.onChange(e.target.value)
                 }}
                 aria-invalid={fieldState.invalid}
-                placeholder="If you don't have a website, submit vercel or netlify"
+                placeholder="If you don’t have a site yet, share any working URL (e.g. vercel.app or netlify.app preview)."
                 className="bg-white text-black placeholder:text-black border-slate-200"
               />
               
@@ -145,7 +145,7 @@ return (
                 {...(field as any)}
                 aria-invalid={fieldState.invalid}
                 id="what_are_you_selling"
-                placeholder="We are building a SaaS platform that allows founders to create subscriptions, accept global payments, manage customers, and automate billing. The product helps teams launch faster by handling compliance, payments, and payouts."
+                placeholder="AI copilot that drafts product updates, summarizes customer tickets, and suggests next actions for support teams in real time."
                 className="bg-white text-black placeholder:text-black border-slate-200 min-h-[120px]"
               />
               
@@ -202,11 +202,8 @@ return (
             <div>
               <Field data-invalid={fieldState.invalid} className="gap-1 col-span-full">
                 <FieldLabel htmlFor="product_demo">
-                  Product Demo
+                  Product Demo (upload anything that helps us understand the product better)
                 </FieldLabel>
-                <p className="text-sm text-black mb-2">
-                  Upload anything that helps us understand the product better
-                </p>
                 <FileUpload
                   {...field}
                   setValue={form.setValue}
@@ -259,6 +256,9 @@ return (
           )}
         />
 
+        <h2 className="mt-4 mb-1 font-bold text-2xl tracking-tight col-span-full text-black">
+          Disclaimers
+        </h2>
         <Controller
           name="compliance_declaration" 
           control={form.control}
