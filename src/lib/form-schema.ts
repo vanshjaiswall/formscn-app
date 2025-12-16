@@ -37,5 +37,4 @@ export const formSchema = z.object({
     .string()
     .min(1, "Please select your current payment solution.")
     .optional(),
-  socialmediabuttons-95d: z.unknown().optional(),
 });
