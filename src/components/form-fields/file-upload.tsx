@@ -87,7 +87,7 @@ export function FileUpload({
   onDragOver={handleDragOver}
   onDrop={handleDrop}
   data-dragging={isDragging || undefined}
-  className="flex min-h-40 flex-col items-center justify-center rounded-xl border border-dashed border-slate-600 bg-slate-900/70 p-6 transition-colors hover:cursor-pointer hover:bg-slate-800 data-[dragging=true]:bg-slate-800 has-[input:focus]:border-slate-300 has-[input:focus]:ring-[3px] has-[input:focus]:ring-slate-500/60 has-disabled:pointer-events-none has-disabled:opacity-50"
+  className="flex w-full min-h-56 flex-col items-center justify-center rounded-xl border border-dashed border-slate-600 bg-slate-900/70 p-6 transition-colors hover:cursor-pointer hover:bg-slate-800 data-[dragging=true]:bg-slate-800 has-[input:focus]:border-slate-300 has-[input:focus]:ring-[3px] has-[input:focus]:ring-slate-500/60 has-disabled:pointer-events-none has-disabled:opacity-50"
 >
         <input
           {...getInputProps()}

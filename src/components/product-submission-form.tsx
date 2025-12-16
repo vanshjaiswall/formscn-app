@@ -77,8 +77,6 @@ return (
         className="p-6 sm:p-8 w-full max-w-3xl mx-auto rounded-xl border border-slate-700 bg-slate-900 text-slate-50"
       >
         <FieldGroup className="grid md:grid-cols-6 gap-4 mb-6">
-          <h2 className="mt-4 mb-1 font-bold text-2xl tracking-tight col-span-full">Intro</h2>
-
         <Controller
           name="product_name"
           control={form.control}
@@ -180,7 +178,6 @@ return (
             </Field>
           )}}
         />
-<h2 className="mt-4 mb-1 font-bold text-2xl tracking-tight col-span-full">What You’re Selling</h2>
 
           <Controller
               name="what_are_you_selling"
@@ -213,11 +210,8 @@ return (
                   {...field}
                   setValue={form.setValue}
                   name="product_demo"
-                  
-                  
                   maxFiles={1}
                   maxSize={1048576}
-                  
                 />
               </Field>
               {Array.isArray(fieldState.error) ? (
@@ -358,18 +352,6 @@ return (
             </Field>
           )}}
         />
-<FieldSeparator className="my-4" />
-<div className="flex gap-3 justify-center w-full items-center flex-wrap pb-3 col-span-full">
-          {socialMediaButtons.map((o) => (
-            <Button key={o.label} variant="outline" type="button"
-              className="text-sm gap-2 px-2 h-10 grow ">
-              <div className="place-items-center grid rounded-full bg-white size-6 p-0.5">
-                <Image src={o.src} alt={o.label} width={16} height={16} />
-              </div>
-              {o.label}
-            </Button>
-          ))}
-        </div>
           </FieldGroup>
           <div className="flex justify-end items-center w-full">
             <Button>

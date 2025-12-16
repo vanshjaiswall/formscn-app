@@ -12,8 +12,7 @@ export default function Home() {
             Share your product details
           </h1>
           <p className="mt-3 text-base text-slate-200">
-            Provide product context, payment setup, and demo assets. Submissions
-            sync directly to Google Sheets so your team can triage quickly.
+            Submit your product details so our team can review and get back to you.
           </p>
         </div>
         <DraftForm />

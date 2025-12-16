@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  /* Default to dark mode */
-  --background: #050816;
+  /* Default to dark mode – use a neutral near-black instead of blue */
+  --background: #020617;
   --foreground: #f9fafb;
 }
 
