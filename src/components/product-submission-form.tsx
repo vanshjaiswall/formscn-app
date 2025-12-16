@@ -74,7 +74,7 @@ const { isExecuting, hasSucceeded } = formAction;
 return (
       <form
         onSubmit={handleSubmit}
-        className="p-6 sm:p-8 w-full max-w-3xl mx-auto rounded-xl border border-slate-700 bg-slate-900 text-slate-50"
+        className="p-6 sm:p-8 w-full max-w-3xl mx-auto rounded-xl border border-slate-200 bg-white text-slate-900 shadow-xl"
       >
         <FieldGroup className="grid md:grid-cols-6 gap-4 mb-6">
         <Controller
