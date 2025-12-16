@@ -92,7 +92,7 @@ return (
                 }}
                 aria-invalid={fieldState.invalid}
                 placeholder="Working name of your product."
-                
+                className="bg-white text-slate-900 placeholder:text-slate-500 border-slate-200"
               />
               
               {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
@@ -115,7 +115,7 @@ return (
                 }}
                 aria-invalid={fieldState.invalid}
                 placeholder="Provide a working website (e.g. .vercel.app, .netlify.app)."
-                
+                className="bg-white text-slate-900 placeholder:text-slate-500 border-slate-200"
               />
               
               {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
@@ -138,7 +138,7 @@ return (
                 }}
                 aria-invalid={fieldState.invalid}
                 placeholder="A SaaS tool that helps businesses manage subscriptions and accept global payments."
-                
+                className="bg-white text-slate-900 placeholder:text-slate-500 border-slate-200"
               />
               
               {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
@@ -158,9 +158,8 @@ return (
               <Select
                 value={field.value}
                 onValueChange={field.onChange}
-                
               >
-                <SelectTrigger className="w-full">
+                <SelectTrigger className="w-full bg-white text-slate-900 border-slate-200">
                   <SelectValue placeholder="Select product type" />
                 </SelectTrigger>
                 <SelectContent>
@@ -190,7 +189,7 @@ return (
                     aria-invalid={fieldState.invalid}
                     id="what_are_you_selling"
                     placeholder="We are building a SaaS platform that allows founders to create subscriptions, accept global payments, manage customers, and automate billing. The product helps teams launch faster by handling compliance, payments, and payouts."
-                    
+                    className="bg-white text-slate-900 placeholder:text-slate-500 border-slate-200 min-h-[120px]"
                   />
                   
                   {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
@@ -247,7 +246,7 @@ return (
                 }}
                 aria-invalid={fieldState.invalid}
                 placeholder="Instant access via web app after payment, enterprise sales over email, or manual selling via social media."
-                
+                className="bg-white text-slate-900 placeholder:text-slate-500 border-slate-200"
               />
               
               {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
@@ -312,7 +311,7 @@ return (
                 }}
                 aria-invalid={fieldState.invalid}
                 placeholder="Product or founder links (X, LinkedIn, GitHub, etc.)."
-                
+                className="bg-white text-slate-900 placeholder:text-slate-500 border-slate-200"
               />
               
               {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
@@ -332,9 +331,8 @@ return (
               <Select
                 value={field.value}
                 onValueChange={field.onChange}
-                
               >
-                <SelectTrigger className="w-full">
+                <SelectTrigger className="w-full bg-white text-slate-900 border-slate-200">
                   <SelectValue  />
                 </SelectTrigger>
                 <SelectContent>
