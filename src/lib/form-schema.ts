@@ -26,6 +26,11 @@ export const formSchema = z.object({
     .refine((v) => v === true, {
       message: "Compliance declaration must be accepted.",
     }),
+  merchant_agreement_policy: z
+    .boolean()
+    .refine((v) => v === true, {
+      message: "Merchant Acceptance Policy must be accepted.",
+    }),
   social_media_links: z.string().optional(),
   current_payment_solution: z
     .string()

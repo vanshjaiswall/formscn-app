@@ -291,7 +291,37 @@ return (
           )}
         />
 
-        {/* Merchant Acceptance Policy section replaced by single-line footer controls per latest spec */}
+        <Controller
+          name="merchant_agreement_policy" 
+          control={form.control}
+          render={({ field, fieldState }) => (
+            <Field orientation="horizontal" data-invalid={fieldState.invalid} className="col-span-full">
+              <FieldContent>  
+                <FieldLabel htmlFor="merchant_agreement_policy">
+                  Have you read the merchant acceptance policy?{" "}
+                  <a
+                    href="/merchant-acceptance-policy"
+                    className="text-black underline underline-offset-4"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    View Policy
+                  </a>{" "}
+                  <span className="text-red-500">*</span>
+                </FieldLabel>
+                
+                {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
+              </FieldContent>
+              <Switch
+                aria-invalid={fieldState.invalid}
+                id="merchant_agreement_policy"
+                checked={field.value as boolean}
+                onCheckedChange={field.onChange}
+                
+              />
+            </Field>
+          )}
+        />
 
 <h2 className="mt-4 mb-1 font-bold text-2xl tracking-tight col-span-full text-black">
   Additional Queries
@@ -351,33 +381,14 @@ return (
           )}}
         />
           </FieldGroup>
-          <div className="flex w-full flex-wrap items-center justify-between gap-3 mt-6">
-            <p className="text-sm text-black">
-              Have you read the merchant acceptance policy?
-            </p>
-            <div className="flex items-center gap-3">
-              <Button
-                variant="outline"
-                className="border-slate-300 bg-white text-black hover:bg-slate-50"
-                asChild
-                aria-label="View merchant acceptance policy"
-              >
-                <a
-                  href="/merchant-acceptance-policy"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  View Policy
-                </a>
-              </Button>
-              <Button
-                type="submit"
-                className="border border-slate-300 bg-white text-black shadow-[0_0_0_1px_rgba(148,163,184,0.9),0_10px_30px_rgba(15,23,42,0.16)] hover:bg-slate-50 focus-visible:ring-2 focus-visible:ring-slate-400 focus-visible:ring-offset-0"
-                aria-label="Submit product submission form"
-              >
-                {isExecuting ? "Submitting..." : "Submit"}
-              </Button>
-            </div>
+          <div className="flex justify-end items-center w-full mt-6">
+            <Button
+              type="submit"
+              className="border border-slate-300 bg-white text-black shadow-[0_0_0_1px_rgba(148,163,184,0.9),0_10px_30px_rgba(15,23,42,0.16)] hover:bg-slate-50 focus-visible:ring-2 focus-visible:ring-slate-400 focus-visible:ring-offset-0"
+              aria-label="Submit product submission form"
+            >
+              {isExecuting ? "Submitting..." : "Submit"}
+            </Button>
           </div>
       </form>
 )}
