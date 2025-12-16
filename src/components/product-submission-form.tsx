@@ -82,9 +82,11 @@ return (
           control={form.control}
           render={({ field, fieldState }) => (
             <Field data-invalid={fieldState.invalid} className="gap-1 col-span-full">
-            <FieldLabel htmlFor="product_name">Product Name </FieldLabel>
+            <FieldLabel htmlFor="product_name">
+              Product Name <span className="text-red-500">*</span>
+            </FieldLabel>
               <Input
-                {...field}
+                {...(field as any)}
                 id="product_name"
                 type="text"
                 onChange={(e) => {
@@ -105,9 +107,11 @@ return (
           control={form.control}
           render={({ field, fieldState }) => (
             <Field data-invalid={fieldState.invalid} className="gap-1 col-span-full">
-            <FieldLabel htmlFor="website">Website </FieldLabel>
+            <FieldLabel htmlFor="website">
+              Website <span className="text-red-500">*</span>
+            </FieldLabel>
               <Input
-                {...field}
+                {...(field as any)}
                 id="website"
                 type="text"
                 onChange={(e) => {
@@ -128,9 +132,11 @@ return (
           control={form.control}
           render={({ field, fieldState }) => (
             <Field data-invalid={fieldState.invalid} className="gap-1 col-span-full">
-            <FieldLabel htmlFor="description">Description </FieldLabel>
+            <FieldLabel htmlFor="description">
+              Description <span className="text-red-500">*</span>
+            </FieldLabel>
               <Input
-                {...field}
+                {...(field as any)}
                 id="description"
                 type="text"
                 onChange={(e) => {
@@ -153,10 +159,10 @@ return (
           const options = [{"label":"SaaS","value":"saas"},{"label":"e-Books","value":"ebooks"},{"label":"AI Tools","value":"ai_tools"},{"label":"Productized Service","value":"productized_service"},{"label":"Course","value":"course"},{"label":"3rd Party Extensions / Apps","value":"third_party"},{"label":"Templates","value":"templates"},{"label":"Others","value":"others"}];
           return (
             <Field data-invalid={fieldState.invalid} className="gap-1 col-span-full">
-              <FieldLabel htmlFor="product_type">Product Type </FieldLabel>
+            <FieldLabel htmlFor="product_type">Product Type</FieldLabel>
               
               <Select
-                value={field.value}
+                value={field.value as string}
                 onValueChange={field.onChange}
               >
                 <SelectTrigger className="w-full bg-white text-slate-900 border-slate-200">
@@ -183,9 +189,11 @@ return (
               control={form.control}
               render={({ field, fieldState }) => (
                 <Field data-invalid={fieldState.invalid} className="gap-1 col-span-full">
-                <FieldLabel htmlFor="what_are_you_selling">What are you selling? </FieldLabel>
+                <FieldLabel htmlFor="what_are_you_selling">
+                  What are you selling? <span className="text-red-500">*</span>
+                </FieldLabel>
                   <Textarea
-                    {...field}
+                    {...(field as any)}
                     aria-invalid={fieldState.invalid}
                     id="what_are_you_selling"
                     placeholder="We are building a SaaS platform that allows founders to create subscriptions, accept global payments, manage customers, and automate billing. The product helps teams launch faster by handling compliance, payments, and payouts."
@@ -203,7 +211,9 @@ return (
           render={({ field, fieldState }) => (
             <div>
               <Field data-invalid={fieldState.invalid} className="gap-1 col-span-full">
-                <FieldLabel htmlFor="product_demo">Product Demo </FieldLabel>
+                <FieldLabel htmlFor="product_demo">
+                  Prototype / Product Demo <span className="text-red-500">*</span>
+                </FieldLabel>
                 
                 <FileUpload
                   {...field}
@@ -236,9 +246,11 @@ return (
           control={form.control}
           render={({ field, fieldState }) => (
             <Field data-invalid={fieldState.invalid} className="gap-1 col-span-full">
-            <FieldLabel htmlFor="product_delivery">Product Delivery </FieldLabel>
+            <FieldLabel htmlFor="product_delivery">
+              Product Delivery <span className="text-red-500">*</span>
+            </FieldLabel>
               <Input
-                {...field}
+                {...(field as any)}
                 id="product_delivery"
                 type="text"
                 onChange={(e) => {
@@ -260,14 +272,16 @@ return (
           render={({ field, fieldState }) => (
             <Field orientation="horizontal" data-invalid={fieldState.invalid} className="col-span-full">
               <FieldContent>  
-                <FieldLabel htmlFor="compliance_declaration">Compliance Declaration </FieldLabel>
+                <FieldLabel htmlFor="compliance_declaration">
+                  Compliance Declaration <span className="text-red-500">*</span>
+                </FieldLabel>
                 
                 {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
               </FieldContent>
               <Switch
                 aria-invalid={fieldState.invalid}
                 id="compliance_declaration"
-                checked={field.value}
+                checked={field.value as boolean}
                 onCheckedChange={field.onChange}
                 
               />
@@ -281,14 +295,16 @@ return (
           render={({ field, fieldState }) => (
             <Field orientation="horizontal" data-invalid={fieldState.invalid} className="col-span-full">
               <FieldContent>  
-                <FieldLabel htmlFor="merchant_agreement_policy">Merchant Agreement Policy (MAP) </FieldLabel>
+                <FieldLabel htmlFor="merchant_agreement_policy">
+                  Merchant Acceptance Policy (MAP) <span className="text-red-500">*</span>
+                </FieldLabel>
                 
                 {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
               </FieldContent>
               <Switch
                 aria-invalid={fieldState.invalid}
                 id="merchant_agreement_policy"
-                checked={field.value}
+                checked={field.value as boolean}
                 onCheckedChange={field.onChange}
                 
               />
@@ -329,7 +345,7 @@ return (
               <FieldLabel htmlFor="current_payment_solution">Current Payment Solution </FieldLabel>
               
               <Select
-                value={field.value}
+                value={field.value as string}
                 onValueChange={field.onChange}
               >
                 <SelectTrigger className="w-full bg-white text-slate-900 border-slate-200">
