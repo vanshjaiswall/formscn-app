@@ -16,9 +16,8 @@ export const formSchema = z.object({
   what_are_you_selling: z
     .string()
     .min(1, "Please describe what you are selling."),
-  product_demo: z
-    .array(z.string())
-    .min(1, "Please upload at least one prototype or product demo."),
+  // Optional prototype / demo upload
+  product_demo: z.array(z.string()).optional(),
   product_delivery: z
     .string()
     .min(1, "Product delivery details are required."),
@@ -33,6 +32,11 @@ export const formSchema = z.object({
       message: "Merchant Acceptance Policy (MAP) must be accepted.",
     }),
   social_media_links: z.string().optional(),
+  map_confirmation: z
+    .enum(["yes", "no"])
+    .refine((v) => v === "yes", {
+      message: "Please confirm you have read the Merchant Acceptance Policy.",
+    }),
   current_payment_solution: z
     .string()
     .min(1, "Please select your current payment solution.")

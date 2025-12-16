@@ -94,7 +94,7 @@ return (
                 }}
                 aria-invalid={fieldState.invalid}
                 placeholder="Working name of your product."
-                className="bg-white text-slate-900 placeholder:text-slate-500 border-slate-200"
+                className="bg-white text-black placeholder:text-black border-slate-200"
               />
               
               {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
@@ -119,7 +119,7 @@ return (
                 }}
                 aria-invalid={fieldState.invalid}
                 placeholder="Provide a working website (e.g. .vercel.app, .netlify.app)."
-                className="bg-white text-slate-900 placeholder:text-slate-500 border-slate-200"
+                className="bg-white text-black placeholder:text-black border-slate-200"
               />
               
               {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
@@ -144,7 +144,7 @@ return (
                 }}
                 aria-invalid={fieldState.invalid}
                 placeholder="A SaaS tool that helps businesses manage subscriptions and accept global payments."
-                className="bg-white text-slate-900 placeholder:text-slate-500 border-slate-200"
+                className="bg-white text-black placeholder:text-black border-slate-200"
               />
               
               {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
@@ -165,7 +165,7 @@ return (
                 value={field.value as string}
                 onValueChange={field.onChange}
               >
-                <SelectTrigger className="w-full bg-white text-slate-900 border-slate-200">
+                <SelectTrigger className="w-full bg-white text-black border-slate-200">
                   <SelectValue placeholder="Select product type" />
                 </SelectTrigger>
                 <SelectContent>
@@ -197,7 +197,7 @@ return (
                     aria-invalid={fieldState.invalid}
                     id="what_are_you_selling"
                     placeholder="We are building a SaaS platform that allows founders to create subscriptions, accept global payments, manage customers, and automate billing. The product helps teams launch faster by handling compliance, payments, and payouts."
-                    className="bg-white text-slate-900 placeholder:text-slate-500 border-slate-200 min-h-[120px]"
+                    className="bg-white text-black placeholder:text-black border-slate-200 min-h-[120px]"
                   />
                   
                   {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
@@ -212,7 +212,7 @@ return (
             <div>
               <Field data-invalid={fieldState.invalid} className="gap-1 col-span-full">
                 <FieldLabel htmlFor="product_demo">
-                  Prototype / Product Demo <span className="text-red-500">*</span>
+                  Prototype / Product Demo
                 </FieldLabel>
                 
                 <FileUpload
@@ -247,7 +247,8 @@ return (
           render={({ field, fieldState }) => (
             <Field data-invalid={fieldState.invalid} className="gap-1 col-span-full">
             <FieldLabel htmlFor="product_delivery">
-              Product Delivery <span className="text-red-500">*</span>
+              How will customers receive the product after purchase?{" "}
+              <span className="text-red-500">*</span>
             </FieldLabel>
               <Input
                 {...(field as any)}
@@ -257,8 +258,8 @@ return (
                 field.onChange(e.target.value)
                 }}
                 aria-invalid={fieldState.invalid}
-                placeholder="Instant access via web app after payment, enterprise sales over email, or manual selling via social media."
-                className="bg-white text-slate-900 placeholder:text-slate-500 border-slate-200"
+                placeholder="Describe how customers receive access (e.g. instant web access, download link, email delivery)."
+                className="bg-white text-black placeholder:text-black border-slate-200"
               />
               
               {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
@@ -273,7 +274,8 @@ return (
             <Field orientation="horizontal" data-invalid={fieldState.invalid} className="col-span-full">
               <FieldContent>  
                 <FieldLabel htmlFor="compliance_declaration">
-                  Compliance Declaration <span className="text-red-500">*</span>
+                  I confirm my product complies with applicable laws and platform
+                  policies. <span className="text-red-500">*</span>
                 </FieldLabel>
                 
                 {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
@@ -296,9 +298,17 @@ return (
             <Field orientation="horizontal" data-invalid={fieldState.invalid} className="col-span-full">
               <FieldContent>  
                 <FieldLabel htmlFor="merchant_agreement_policy">
-                  Merchant Acceptance Policy (MAP) <span className="text-red-500">*</span>
+                  Merchant Acceptance Policy (MAP){" "}
+                  <a
+                    href="/merchant-acceptance-policy"
+                    className="text-black underline underline-offset-4"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    View policy
+                  </a>{" "}
+                  <span className="text-red-500">*</span>
                 </FieldLabel>
-                
                 {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
               </FieldContent>
               <Switch
@@ -311,7 +321,49 @@ return (
             </Field>
           )}
         />
-<h2 className="mt-4 mb-1 font-bold text-2xl tracking-tight col-span-full">Additional Queries</h2>
+        <Controller
+          name="map_confirmation"
+          control={form.control}
+          render={({ field, fieldState }) => (
+            <Field data-invalid={fieldState.invalid} className="gap-2 col-span-full">
+              <FieldLabel htmlFor="map_confirmation">
+                Have you read the Merchant Acceptance Policy?{" "}
+                <span className="text-red-500">*</span>
+              </FieldLabel>
+              <div className="flex flex-row gap-4 text-black">
+                <label className="inline-flex items-center gap-2">
+                  <input
+                    type="radio"
+                    value="yes"
+                    checked={field.value === "yes"}
+                    onChange={() => field.onChange("yes")}
+                    className="h-4 w-4 border border-slate-300"
+                  />
+                  <span>Yes</span>
+                </label>
+                <label className="inline-flex items-center gap-2">
+                  <input
+                    type="radio"
+                    value="no"
+                    checked={field.value === "no"}
+                    onChange={() => field.onChange("no")}
+                    className="h-4 w-4 border border-slate-300"
+                  />
+                  <span>No</span>
+                </label>
+              </div>
+              {fieldState.invalid && (
+                <FieldError
+                  errors={[{ message: fieldState.error?.message }]}
+                />
+              )}
+            </Field>
+          )}
+        />
+
+<h2 className="mt-4 mb-1 font-bold text-2xl tracking-tight col-span-full text-black">
+  Additional Queries
+</h2>
 
         <Controller
           name="social_media_links"
