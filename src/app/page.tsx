@@ -5,11 +5,8 @@ export default function Home() {
     <main className="min-h-screen bg-white text-slate-900">
       <div className="mx-auto flex max-w-6xl flex-col gap-8 px-4 py-10 sm:px-8 lg:px-12">
         <div className="max-w-2xl">
-          <p className="text-sm font-medium uppercase tracking-wide text-black">
-            Product submission
-          </p>
           <h1 className="mt-2 text-3xl font-semibold tracking-tight text-black">
-            Share your product details
+            Product submission
           </h1>
           <p className="mt-3 text-base text-black">
             Submit your product details so our team can review and get back to you.

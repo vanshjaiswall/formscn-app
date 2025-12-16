@@ -291,75 +291,7 @@ return (
           )}
         />
 
-        <Controller
-          name="merchant_agreement_policy" 
-          control={form.control}
-          render={({ field, fieldState }) => (
-            <Field orientation="horizontal" data-invalid={fieldState.invalid} className="col-span-full">
-              <FieldContent>  
-                <FieldLabel htmlFor="merchant_agreement_policy">
-                  Merchant Acceptance Policy (MAP){" "}
-                  <a
-                    href="/merchant-acceptance-policy"
-                    className="text-black underline underline-offset-4"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    View policy
-                  </a>{" "}
-                  <span className="text-red-500">*</span>
-                </FieldLabel>
-                {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
-              </FieldContent>
-              <Switch
-                aria-invalid={fieldState.invalid}
-                id="merchant_agreement_policy"
-                checked={field.value as boolean}
-                onCheckedChange={field.onChange}
-                
-              />
-            </Field>
-          )}
-        />
-        <Controller
-          name="map_confirmation"
-          control={form.control}
-          render={({ field, fieldState }) => (
-            <Field data-invalid={fieldState.invalid} className="gap-2 col-span-full">
-              <FieldLabel htmlFor="map_confirmation">
-                Have you read the Merchant Acceptance Policy?{" "}
-                <span className="text-red-500">*</span>
-              </FieldLabel>
-              <div className="flex flex-row gap-4 text-black">
-                <label className="inline-flex items-center gap-2">
-                  <input
-                    type="radio"
-                    value="yes"
-                    checked={field.value === "yes"}
-                    onChange={() => field.onChange("yes")}
-                    className="h-4 w-4 border border-slate-300"
-                  />
-                  <span>Yes</span>
-                </label>
-                <label className="inline-flex items-center gap-2">
-                  <input
-                    type="radio"
-                    value="no"
-                    checked={field.value === "no"}
-                    onChange={() => field.onChange("no")}
-                    className="h-4 w-4 border border-slate-300"
-                  />
-                  <span>No</span>
-                </label>
-              </div>
-              {fieldState.invalid && (
-                <FieldError
-                  errors={[{ message: fieldState.error?.message }]}
-                />
-              )}
-            </Field>
-          )}
-        />
+        {/* Merchant Acceptance Policy section replaced by single-line footer controls per latest spec */}
 
 <h2 className="mt-4 mb-1 font-bold text-2xl tracking-tight col-span-full text-black">
   Additional Queries
@@ -419,10 +351,33 @@ return (
           )}}
         />
           </FieldGroup>
-          <div className="flex justify-end items-center w-full">
-            <Button>
-              {isExecuting ? 'Submitting...' : 'Submit'}
-            </Button>
+          <div className="flex w-full flex-wrap items-center justify-between gap-3 mt-6">
+            <p className="text-sm text-black">
+              Have you read the merchant acceptance policy?
+            </p>
+            <div className="flex items-center gap-3">
+              <Button
+                variant="outline"
+                className="border-slate-300 bg-white text-black hover:bg-slate-50"
+                asChild
+                aria-label="View merchant acceptance policy"
+              >
+                <a
+                  href="/merchant-acceptance-policy"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  View Policy
+                </a>
+              </Button>
+              <Button
+                type="submit"
+                className="border border-slate-300 bg-white text-black shadow-[0_0_0_1px_rgba(148,163,184,0.9),0_10px_30px_rgba(15,23,42,0.16)] hover:bg-slate-50 focus-visible:ring-2 focus-visible:ring-slate-400 focus-visible:ring-offset-0"
+                aria-label="Submit product submission form"
+              >
+                {isExecuting ? "Submitting..." : "Submit"}
+              </Button>
+            </div>
           </div>
       </form>
 )}
